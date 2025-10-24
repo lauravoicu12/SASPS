@@ -2,13 +2,13 @@
 Studiu comparativ privind eficiența și mentenabilitatea între accesul direct la ORM și utilizarea Repository Pattern într-o aplicație web de tip Task Manager
 
 Proiectul își propune să analizeze diferențele arhitecturale și de mentenabilitate între două abordări de acces la date folosite în aplicațiile Java moderne:
-Acces direct la ORM – logica de business interacționează direct cu entitățile JPA și cu EntityManager, realizând operațiile CRUD prin apeluri directe 
-Repository Pattern – un strat intermediar dedicat (Repository) este introdus între logica de business și ORM, separând complet detaliile de persistenta de logica aplicației
+- Acces direct la ORM – logica de business interacționează direct cu entitățile JPA și cu EntityManager, realizând operațiile CRUD prin apeluri directe 
+- Repository Pattern – un strat intermediar dedicat (Repository) este introdus între logica de business și ORM, separând complet detaliile de persistenta de logica aplicației
 
 Se vor implementa două versiuni ale aceleiași aplicații de tip Task Manager, care permite autentificare, creare, modificare și ștergere de task-uri.
 Cele două abordări comparate sunt:
-Varianta A: acces direct la ORM (logica de business comunică direct cu SQLAlchemy);
-Varianta B: folosirea Repository Pattern, care adaugă un strat intermediar între logică și ORM, pentru a obține o arhitectură mai clară și testabilă.
+- Varianta A: acces direct la ORM (logica de business comunică direct cu SQLAlchemy);
+- Varianta B: folosirea Repository Pattern, care adaugă un strat intermediar între logică și ORM, pentru a obține o arhitectură mai clară și testabilă.
 
 # Aspecte comparate
 Claritatea codului
