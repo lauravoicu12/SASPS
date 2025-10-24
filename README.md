@@ -31,13 +31,13 @@ Vor fi analizați următorii indicatori:
 - Ușurința de testare (număr de teste unitare, cod acoperit, mocking posibil)
 
 # Tehnologii propuse
-Limbaj: Java 17
-Framework web: Spring Boot
-ORM: Hibernate (JPA)
-Bază de date: PostgreSQL
-Testare:	JUnit 5 + Mockito
-Analiză cod:	SonarLint / IntelliJ Metrics Plugin
-Build & Dependency Management:	Maven
+- Limbaj: Java 17
+- Framework web: Spring Boot
+- ORM: Hibernate (JPA)
+- Bază de date: PostgreSQL
+- Testare:	JUnit 5 + Mockito
+- Analiză cod:	SonarLint / IntelliJ Metrics Plugin
+- Build & Dependency Management:	Maven
 
 # Concluzii asteptate
 Demonstrată superioritatea structurală a Repository Pattern în proiecte de dimensiuni medii/mari
