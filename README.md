@@ -30,6 +30,12 @@ Vor fi analizați următorii indicatori:
 - Timpul de execuție pentru operații CRUD repetate (insert, update, query)
 - Ușurința de testare (număr de teste unitare, cod acoperit, mocking posibil)
 
+# Design patterns utilizate
+Repository:	Separarea logicii de acces la date: Fiecare entitate are un repository dedicat (TaskRepository, UserRepository) cu metode CRUD
+Service Layer: Logica de business:	Conține regulile de business și utilizează repository-urile pentru manipularea datelor
+Dependency Injection (Spring):	Gestionarea dependențelor:	Permite injectarea automată a componentelor (Service / Repository) fără coupling puternic
+Singleton (implicit în Spring Beans):	Gestionarea instanțelor de servicii și repository-uri: Spring gestionează ciclul de viață al componentelor
+
 # Tehnologii propuse
 - Limbaj: Java 17
 - Framework web: Spring Boot
@@ -40,6 +46,6 @@ Vor fi analizați următorii indicatori:
 - Build & Dependency Management:	Maven
 
 # Concluzii asteptate
-Demonstrată superioritatea structurală a Repository Pattern în proiecte de dimensiuni medii/mari
-Arătarea unui trade-off mic între claritate și performanță
-Repository Pattern → mai bun pentru mentenabilitate, testabilitate, extensibilitate
+- Demonstrată superioritatea structurală a Repository Pattern în proiecte de dimensiuni medii/mari
+- Arătarea unui trade-off mic între claritate și performanță
+- Repository Pattern → mai bun pentru mentenabilitate, testabilitate, extensibilitate
