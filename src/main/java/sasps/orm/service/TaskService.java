@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import sasps.orm.entity.Task;
+import sasps.orm.entity.TaskStatus;
 
 import java.util.List;
 
@@ -28,6 +29,20 @@ public class TaskService {
             throw new EntityNotFoundException("Task not found: " + id);
         }
         return task;
+    }
+
+    public List<Task> getByStatus(TaskStatus status) {
+        return entityManager.createQuery(
+                        "SELECT t FROM Task t WHERE t.status = :status", Task.class)
+                .setParameter("status", status)
+                .getResultList();
+    }
+
+    public List<Task> getByAssignee(Long assigneeId) {
+        return entityManager.createQuery(
+                        "SELECT t FROM Task t WHERE t.assigneeId = :assigneeId", Task.class)
+                .setParameter("assigneeId", assigneeId)
+                .getResultList();
     }
 
     public Task createTask(Task task) {
