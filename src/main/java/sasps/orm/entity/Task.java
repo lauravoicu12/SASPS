@@ -1,9 +1,7 @@
-package sasps.repository.entity;
+package sasps.orm.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import sasps.orm.entity.TaskPriority;
-import sasps.orm.entity.TaskStatus;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
