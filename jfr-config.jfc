@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Custom JFR Configuration for monitoring:
+    - CPU usage
+    - Data access duration (JDBC/JPA)
+    - Memory allocations
+-->
+<configuration version="2.0" label="Custom Profiling" description="Custom configuration for CPU, memory allocations, and database access monitoring" provider="Custom">
+
+    <!-- CPU Sampling -->
+    <event name="jdk.ExecutionSample">
+        <setting name="enabled">true</setting>
+        <setting name="period">10 ms</setting>
+    </event>
+
+    <event name="jdk.NativeMethodSample">
+        <setting name="enabled">true</setting>
+        <setting name="period">10 ms</setting>
+    </event>
+
+    <!-- CPU Load -->
+    <event name="jdk.CPULoad">
+        <setting name="enabled">true</setting>
+        <setting name="period">1 s</setting>
+    </event>
+
+    <event name="jdk.ThreadCPULoad">
+        <setting name="enabled">true</setting>
+        <setting name="period">1 s</setting>
+    </event>
+
+    <!-- Memory Allocations -->
+    <event name="jdk.ObjectAllocationInNewTLAB">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+    </event>
+
+    <event name="jdk.ObjectAllocationOutsideTLAB">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+    </event>
+
+    <event name="jdk.ObjectAllocationSample">
+        <setting name="enabled">true</setting>
+        <setting name="throttle">150/s</setting>
+    </event>
+
+    <!-- JDBC Events (Database Access Duration) -->
+    <event name="jdk.JDBCQuery">
+        <setting name="enabled">true</setting>
+        <setting name="threshold">0 ms</setting>
+        <setting name="stackTrace">true</setting>
+    </event>
+
+    <event name="jdk.JDBCExecute">
+        <setting name="enabled">true</setting>
+        <setting name="threshold">0 ms</setting>
+        <setting name="stackTrace">true</setting>
+    </event>
+
+    <!-- Garbage Collection -->
+    <event name="jdk.GarbageCollection">
+        <setting name="enabled">true</setting>
+        <setting name="threshold">0 ms</setting>
+    </event>
+
+    <event name="jdk.YoungGarbageCollection">
+        <setting name="enabled">true</setting>
+        <setting name="threshold">0 ms</setting>
+    </event>
+
+    <event name="jdk.OldGarbageCollection">
+        <setting name="enabled">true</setting>
+        <setting name="threshold">0 ms</setting>
+    </event>
+
+    <!-- Thread Events -->
+    <event name="jdk.ThreadAllocationStatistics">
+        <setting name="enabled">true</setting>
+        <setting name="period">1 s</setting>
+    </event>
+
+    <event name="jdk.ThreadStart">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+    </event>
+
+    <event name="jdk.ThreadEnd">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+    </event>
+
+    <!-- Exception Events -->
+    <event name="jdk.JavaExceptionThrow">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">0 ms</setting>
+    </event>
+
+    <event name="jdk.JavaErrorThrow">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">0 ms</setting>
+    </event>
+
+    <!-- Method Profiling -->
+    <event name="jdk.JavaMonitorEnter">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">10 ms</setting>
+    </event>
+
+    <event name="jdk.JavaMonitorWait">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">10 ms</setting>
+    </event>
+
+    <!-- System Information -->
+    <event name="jdk.SystemProcess">
+        <setting name="enabled">true</setting>
+        <setting name="period">1 s</setting>
+    </event>
+
+    <event name="jdk.InitialSystemProperty">
+        <setting name="enabled">true</setting>
+    </event>
+
+    <!-- JVM Information -->
+    <event name="jdk.JVMInformation">
+        <setting name="enabled">true</setting>
+        <setting name="period">beginChunk</setting>
+    </event>
+
+    <!-- Class Loading -->
+    <event name="jdk.ClassLoad">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">0 ms</setting>
+    </event>
+
+    <!-- File I/O -->
+    <event name="jdk.FileRead">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">10 ms</setting>
+    </event>
+
+    <event name="jdk.FileWrite">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">10 ms</setting>
+    </event>
+
+    <!-- Socket I/O -->
+    <event name="jdk.SocketRead">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">10 ms</setting>
+    </event>
+
+    <event name="jdk.SocketWrite">
+        <setting name="enabled">true</setting>
+        <setting name="stackTrace">true</setting>
+        <setting name="threshold">10 ms</setting>
+    </event>
+
+</configuration>
