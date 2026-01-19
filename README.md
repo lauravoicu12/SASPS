@@ -30,6 +30,52 @@ Vor fi analizați următorii indicatori:
 - Timpul de execuție pentru operații CRUD repetate (insert, update, query)
 - Ușurința de testare (număr de teste unitare, cod acoperit, mocking posibil)
 
+# Implementare și Exemplificare
+
+În cadrul proiectului au fost dezvoltate două pachete distincte pentru a evidenția diferențele:
+
+### 1. ORM Direct (EntityManager)
+Pachetul `sasps.orm` demonstrează abordarea "low-level" folosind direct `EntityManager`. Aici, interogările JPQL sunt construite manual.
+
+**Exemplu din `sasps/orm/service/TaskService.java`:**
+```java
+@PersistenceContext
+private EntityManager entityManager;
+
+public List<Task> getAllTasks() {
+    // Interogare JPQL explicită
+    return entityManager
+            .createQuery("SELECT t FROM Task t", Task.class)
+            .getResultList();
+}
+
+public Task createTask(Task task) {
+    // Persistare manuală
+    entityManager.persist(task);
+    return task;
+}
+```
+
+### 2. Repository Pattern (Spring Data JPA)
+Pachetul `sasps.repository` utilizează abstracția oferită de Spring Data. Interogările standard sunt generate automat.
+
+**Exemplu din `sasps/repository/service/TaskService.java`:**
+```java
+private final TaskRepository taskRepository;
+
+public List<Task> getAll() {
+    // Metodă "magică" oferită de JpaRepository
+    return taskRepository.findAll();
+}
+```
+
+**Exemplu definiție Repository (`sasps/repository/repository/TaskRepository.java`):**
+```java
+// Nu este nevoie de implementare, Spring o generează la runtime
+public interface TaskRepository extends JpaRepository<Task, Long> {
+}
+```
+
 # Design patterns utilizate
 - Repository:	Separarea logicii de acces la date: Fiecare entitate are un repository dedicat (TaskRepository, UserRepository) cu metode CRUD
 - Service Layer: Logica de business:	Conține regulile de business și utilizează repository-urile pentru manipularea datelor
