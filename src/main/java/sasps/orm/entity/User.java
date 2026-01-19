@@ -30,4 +30,8 @@ public class User {
     public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
+
+    public boolean isPresent() {
+        return id != null;
+    }
 }
